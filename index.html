@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const minCeiled = Math.ceil(0);
+    const maxFloored = Math.floor(3);
+    let humanScore = 0
+    let computerScore = 0
+    const Choices = ['rock', 'paper', 'scissors']
+
+    //let userChoice = prompt("Pick rock, paper, or scissors").toLowerCase()
+    //let computerChoice = getComputerChoice()
+
+
+    playGame()
+
+
+    function getComputerChoice() {
+
+        ComputerChoiceNumber = Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+        computerChoicef = Choices[ComputerChoiceNumber]
+
+        return computerChoicef
+    }
+
+    function winner(userChoice, computerChoice) {
+        return roundWinner
+    }
+
+    function playRound() {
+        let winner = ''
+        let userChoice = prompt("Pick rock, paper, or scissors").toLowerCase()
+        let computerChoice = getComputerChoice()
+
+        console.log("UserChoice: " + userChoice)
+        console.log("ComputerChoice: " + computerChoice)
+
+        if ((userChoice == 'rock' && computerChoice == 'rock') || (userChoice == 'scissors' && computerChoice == 'scissors') || (userChoice == 'paper' && computerChoice == 'paper')) {
+            winner = 'Noone'
+
+            console.log("TIE!")
+            winnerChoice = "Noone"
+            loserChoice = "Noone"
+
+        }
+        else if ((userChoice == 'rock' && computerChoice == 'paper') || (userChoice == 'paper' && computerChoice == 'scissors') || (userChoice == 'scissors' && computerChoice == 'rock')) {
+            winner = 'Computer'
+            winnerChoice = computerChoice
+            loserChoice = userChoice
+
+            computerScore++
+
+
+        }
+        else
+        //    ((computerChoice == 'rock' && userChoice == 'paper') || (computerChoice == 'paper' && userChoice == 'scissors') || (computerChoice == 'scissors' && userChoice == 'rock')) 
+        {
+            winner = 'Human'
+            winnerChoice = userChoice
+            loserChoice = computerChoice
+            humanScore++
+
+
+        }
+        return (
+            console.log(winner + " wins! " + winnerChoice + " beats " + loserChoice + "\n" + "Human Score: " + humanScore + "\n" + "Computer Score: " + computerScore)
+
+        )
+
+
+    }
+    function playGame() {
+        playRound()
+        playRound()
+        playRound()
+        playRound()
+        playRound()
+    }
+</script>
+
+</html>
