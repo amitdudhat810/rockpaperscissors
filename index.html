@@ -4,87 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RockPaperScissors</title>
+
+
 </head>
+
+
 
 <body>
 
-</body>
-<script>
-    const minCeiled = Math.ceil(0);
-    const maxFloored = Math.floor(3);
-    let humanScore = 0
-    let computerScore = 0
-    const Choices = ['rock', 'paper', 'scissors']
+    <Button onclick="playRound(this.id)" id="Rock">Rock</Button>
+    <Button onclick="playRound(this.id)" id="Paper">Paper</Button>
+    <Button onclick="playRound(this.id)" id="Scissors">Scissors</Button>
+    <div></div>
 
-    //let userChoice = prompt("Pick rock, paper, or scissors").toLowerCase()
-    //let computerChoice = getComputerChoice()
+    <script>
+        const minCeiled = Math.ceil(0);
+        const maxFloored = Math.floor(3);
+        let humanScore = 0
+        let computerScore = 0
+        const Choices = ['rock', 'paper', 'scissors']
+
+        const resultdiv = document.createElement("div")
+        const scorediv = document.createElement("div")
+        const userdiv = document.createElement("div")
+        const computerdiv = document.createElement("div")
+
+        const div = document.querySelector("div")
+        // const resultdetail = document.querySelector("div")
+        // const resultUserScore = document.querySelector("div")
+        // const resultComputerScore = document.querySelector("div")
+
+        //let userChoice = prompt("Pick rock, paper, or scissors").toLowerCase()
+        //let computerChoice = getComputerChoice()
 
 
-    playGame()
+        //playGame()
 
 
-    function getComputerChoice() {
+        function getComputerChoice() {
 
-        ComputerChoiceNumber = Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
-        computerChoicef = Choices[ComputerChoiceNumber]
+            ComputerChoiceNumber = Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+            computerChoicef = Choices[ComputerChoiceNumber]
 
-        return computerChoicef
-    }
-
-    function winner(userChoice, computerChoice) {
-        return roundWinner
-    }
-
-    function playRound() {
-        let winner = ''
-        let userChoice = prompt("Pick rock, paper, or scissors").toLowerCase()
-        let computerChoice = getComputerChoice()
-
-        console.log("UserChoice: " + userChoice)
-        console.log("ComputerChoice: " + computerChoice)
-
-        if ((userChoice == 'rock' && computerChoice == 'rock') || (userChoice == 'scissors' && computerChoice == 'scissors') || (userChoice == 'paper' && computerChoice == 'paper')) {
-            winner = 'Noone'
-
-            console.log("TIE!")
-            winnerChoice = "Noone"
-            loserChoice = "Noone"
-
+            return computerChoicef
         }
-        else if ((userChoice == 'rock' && computerChoice == 'paper') || (userChoice == 'paper' && computerChoice == 'scissors') || (userChoice == 'scissors' && computerChoice == 'rock')) {
-            winner = 'Computer'
-            winnerChoice = computerChoice
-            loserChoice = userChoice
 
-            computerScore++
-
-
+        function winner(userChoice, computerChoice) {
+            return roundWinner
         }
-        else
-        //    ((computerChoice == 'rock' && userChoice == 'paper') || (computerChoice == 'paper' && userChoice == 'scissors') || (computerChoice == 'scissors' && userChoice == 'rock')) 
-        {
-            winner = 'Human'
-            winnerChoice = userChoice
-            loserChoice = computerChoice
-            humanScore++
+
+        function playRound(buttonChoice) {
+            let winner = ''
+            let userChoice = buttonChoice.toString().toLowerCase()
+            let computerChoice = getComputerChoice()
 
 
-        }
-        return (
+            //div.removeChild(span)
+
+            //result.
+            //console.log("UserChoice: " + userChoice)
+            //console.log("ComputerChoice: " + computerChoice)
+
+            if ((userChoice == 'rock' && computerChoice == 'rock') || (userChoice == 'scissors' && computerChoice == 'scissors') || (userChoice == 'paper' && computerChoice == 'paper')) {
+                winner = 'Noone'
+
+                //console.log("TIE!")
+                winnerChoice = "Noone"
+                loserChoice = "Noone"
+
+            }
+            else if ((userChoice == 'rock' && computerChoice == 'paper') || (userChoice == 'paper' && computerChoice == 'scissors') || (userChoice == 'scissors' && computerChoice == 'rock')) {
+                winner = 'Computer'
+                winnerChoice = computerChoice
+                loserChoice = userChoice
+
+                computerScore++
+
+
+            }
+            else
+            //    ((computerChoice == 'rock' && userChoice == 'paper') || (computerChoice == 'paper' && userChoice == 'scissors') || (computerChoice == 'scissors' && userChoice == 'rock')) 
+            {
+                winner = 'Human'
+                winnerChoice = userChoice
+                loserChoice = computerChoice
+                humanScore++
+
+
+            }
+            /* if (humanScore + computerScore > 1) {
+                div.
+            } */
+
             console.log(winner + " wins! " + winnerChoice + " beats " + loserChoice + "\n" + "Human Score: " + humanScore + "\n" + "Computer Score: " + computerScore)
+            userdiv.textContent = "UserChoice: " + userChoice
+            div.appendChild(userdiv)
+            computerdiv.textContent = "ComputerChoice: " + computerChoice
+            div.appendChild(computerdiv)
+            resultdiv.textContent = winner + " wins! " + winnerChoice + " beats " + loserChoice
+            div.appendChild(resultdiv)
+            scorediv.textContent = "Human Score: " + humanScore + "\n" + "Computer Score: " + computerScore
 
-        )
+            div.appendChild(scorediv)
+
+            return
+            //(
+            //console.log(winner + " wins! " + winnerChoice + " beats " + loserChoice + "\n" + "Human Score: " + humanScore + "\n" + "Computer Score: " + computerScore)
+            //&& span.textContent = winner + " wins! " + winnerChoice + " beats " + loserChoice + "\n" + "Human Score: " + humanScore + "\n" + "Computer Score: " + computerScore
+            // &&
+            //div.appendChild(span)
+            //)
 
 
-    }
-    function playGame() {
-        playRound()
-        playRound()
-        playRound()
-        playRound()
-        playRound()
-    }
-</script>
+        }
+        function playGame() {
+            playRound()
+
+        }
+    </script>
+</body>
 
 </html>
